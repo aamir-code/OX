@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe Game</title>
+	<script type="text/javascript">
+		var count = 1
+		
+		function fill(v)
+
+		{
+			
+			if(count<=9){
+			if(count%2!=0) {
+
+				document.getElementById(v.id).innerHTML="X"
+
+			}else{
+				document.getElementById(v.id).innerHTML="O"
+			}
+          count++;
+          if(checkWinner()) {
+				alert("You Are A Winner");
+                reset();
+
+			}
+      }else{
+      	alert("Match Draw");
+      	reset();
+      }
+
+		} 
+		function reset() {
+
+			for(var naruto = 1;naruto <= 9;naruto++){
+            document.getElementById('div'+naruto).innerHTML=""
+            count=1;
+
+			}
+		}
+		function checkWinner(){
+			if(getData('div1')!=""&&getData('div2')!=""&&getData('div3')!=""&&getData('div1')==
+				getData('div2')&&getData('div2')==getData('div3')||getData('div4')!=""&&getData('div5')!=""
+				&&getData('div6')!=""&&getData('div4')==getData('div5')&&getData('div5')==getData('div6')
+				||getData('div7')!=""&&getData('div8')!=""
+				&&getData('div9')!=""&&getData('div7')==getData('div8')&&getData('div8')==getData('div9')
+				||getData('div1')!=""&&getData('div5')!=""
+				&&getData('div9')!=""&&getData('div1')==getData('div5')&&getData('div5')==getData('div9')
+				||getData('div3')!=""&&getData('div5')!=""
+				&&getData('div7')!=""&&getData('div3')==getData('div5')&&getData('div5')==getData('div7')) {
+
+				return true;
+
+			}
+			
+		}
+		function getData(div) {
+
+		return document.getElementById(div).innerHTML;
+		}
+	</script>
+	<style type="text/css">
+
+		
+		#div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9{
+
+			border:1px solid black;
+			height:200px;
+			width:200px;
+			float:left;
+			font-size:100px;
+			text-align:center;
+		}
+		#div1,#div4,#div7{
+			clear:left;
+		}
+		#main{
+			margin-left:360px;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="div1" onclick="fill(this)"></div>
+		<div id="div2" onclick="fill(this)"></div>
+		<div id="div3" onclick="fill(this)"></div>
+		<div id="div4" onclick="fill(this)"></div>
+		<div id="div5" onclick="fill(this)"></div>
+		<div id="div6" onclick="fill(this)"></div>
+		<div id="div7" onclick="fill(this)"></div>
+		<div id="div8" onclick="fill(this)"></div>
+		<div id="div9" onclick="fill(this)"></div>
+
+</body>
+</html>
